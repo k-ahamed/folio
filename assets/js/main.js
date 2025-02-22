@@ -146,133 +146,88 @@ themeButton.addEventListener("click", () => {
 /*=============== SCROLL REVEAL ANIMATION ===============*/
 const sr = ScrollReveal({
   origin: "top",
-  distance: "40px", // Reduced distance for a more subtle effect
-  duration: 1000, // Faster duration
-  delay: 100, // Reduced delay for quicker start
+  distance: "60px",
+  duration: 2500,
+  delay: 400,
   reset: true,
 });
 
 sr.reveal(`.nav__menu`, {
-  delay: 0, // No additional delay
+  delay: 100,
   scale: 0.1,
   origin: "bottom",
-  distance: "100px", // Reduced distance for a snappier effect
+  distance: "300px",
 });
 
-sr.reveal(`.home__data`, {
-  delay: 50, // Slight delay for stacking effect
-});
-
+sr.reveal(`.home__data`);
 sr.reveal(`.home__handle`, {
-  delay: 50,
+  delay: 100,
 });
 
 sr.reveal(`.home__social, .home__scroll`, {
-  delay: 50,
+  delay: 100,
   origin: "bottom",
 });
 
 sr.reveal(`.about__img`, {
-  delay: 50,
+  delay: 100,
   origin: "left",
   scale: 0.9,
-  distance: "20px", // Reduced distance
+  distance: "30px",
 });
 
 sr.reveal(`.about__data, .about__description, .about__button-contact`, {
-  delay: 50,
+  delay: 100,
   scale: 0.9,
   origin: "right",
-  distance: "20px", // Reduced distance
+  distance: "30px",
 });
 
 sr.reveal(`.skills__content`, {
-  delay: 0, // No delay for faster reveal
+  delay: 100,
   scale: 0.9,
   origin: "bottom",
-  distance: "20px", // Reduced distance
+  distance: "30px",
 });
 
-sr.reveal(`.services__title, .services__button`, {
-  delay: 50,
+sr.reveal(`.services__title, services__button`, {
+  delay: 100,
   scale: 0.9,
   origin: "top",
-  distance: "20px", // Reduced distance
+  distance: "30px",
 });
 
 sr.reveal(`.work__card`, {
-  delay: 50,
+  delay: 100,
   scale: 0.9,
   origin: "bottom",
-  distance: "20px", // Reduced distance
+  distance: "30px",
 });
 
 sr.reveal(`.testimonial__container`, {
-  delay: 0, // No delay for faster reveal
+  delay: 100,
   scale: 0.9,
   origin: "bottom",
-  distance: "20px", // Reduced distance
+  distance: "30px",
 });
 
 sr.reveal(`.contact__info, .contact__title-info`, {
-  delay: 0, // No delay for faster reveal
+  delay: 100,
   scale: 0.9,
   origin: "left",
-  distance: "20px", // Reduced distance
+  distance: "30px",
 });
 
 sr.reveal(`.contact__form, .contact__title-form`, {
-  delay: 0, // No delay for faster reveal
+  delay: 100,
   scale: 0.9,
   origin: "right",
-  distance: "20px", // Reduced distance
+  distance: "30px",
 });
 
-sr.reveal(`.footer, .footer__container`, {
-  delay: 0, // No delay for faster reveal
+sr.reveal(`.footer, footer__container`, {
+  delay: 100,
   scale: 0.9,
   origin: "bottom",
-  distance: "20px", // Reduced distance
+  distance: "30px",
 });
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Japanese representation of "Suhail Ahamed"
-  var japaneseName = 'スハイル アハメド ハア';
-  var englishName = 'SUHAIL AHAMED';
-
-  // Set the text content to the Japanese representation
-  var title = document.querySelector('.home__name');
-  title.textContent = japaneseName;
-
-  // Apply the font family
-  title.style.fontFamily = "'Django Ink'";
-
-  // Show the title
-  title.style.visibility = 'visible';
-
-  // After a delay, change each letter one after another to English
-  var delay = 200; // milliseconds
-
-  for (let i = 0; i < englishName.length; i++) {
-    setTimeout(function() {
-      title.textContent = replaceAt(title.textContent, i, englishName[i]);
-    }, delay * (i + 1));
-  }
-});
-
-// Function to replace character at specific index in a string
-function replaceAt(string, index, replace) {
-  return string.substring(0, index) + replace + string.substring(index + 1);
-}
-
-// Event listener for view details buttons
-document.querySelectorAll('.view-details-btn').forEach(button => {
-  button.addEventListener('click', () => {
-    const overlay = button.nextElementSibling;
-    overlay.classList.add('show-details');
-    document.body.classList.add('blur-background');
-  });
-});
-
