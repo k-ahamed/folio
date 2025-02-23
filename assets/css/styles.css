@@ -330,7 +330,7 @@ body.light-theme {
 .home__container {
   position: relative;
   row-gap: 4.5rem;
-  padding-top: 8rem;
+  padding-top: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center; /* Ensures everything stays centered */
