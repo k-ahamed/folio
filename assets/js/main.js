@@ -288,3 +288,15 @@ function movePreview(e) {
     });
 }
 
+
+function openEmailClient(event) {
+  event.preventDefault(); // Prevent the default action
+
+  // Attempt to open the default email client
+  window.location.href = "mailto:khalidahamed373@gmail.com";
+
+  // If mailto doesn't work after 2 seconds, open Gmail instead
+  setTimeout(() => {
+      window.open("https://mail.google.com/mail/?view=cm&fs=1&to=khalidahamed373@gmail.com", "_blank");
+  }, 2000);
+}
