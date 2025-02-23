@@ -144,13 +144,15 @@ themeButton.addEventListener("click", () => {
 });
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
+/*=============== SCROLL REVEAL ANIMATION ===============*/
 const sr = ScrollReveal({
   origin: "top",
-  distance: "60px",
-  duration: 2500,
-  delay: 400,
-  reset: true,
+  distance: "40px", // Reduced from 60px for a snappier feel
+  duration: 1200, // Reduced from 2500ms for a faster effect
+  delay: 200, // Reduced from 400ms to speed up the reveal
+  reset: true, // Prevents resetting animations on scroll (optional)
 });
+
 
 sr.reveal(`.nav__menu`, {
   delay: 100,
@@ -231,3 +233,58 @@ sr.reveal(`.footer, footer__container`, {
   origin: "bottom",
   distance: "30px",
 });
+
+
+
+
+
+
+
+//acheivements image hover code
+
+const previewBox = document.getElementById("preview-box");
+const previewImage = document.getElementById("preview-image");
+const hoverLinks = document.querySelectorAll(".hover-preview");
+
+hoverLinks.forEach((link) => {
+    link.addEventListener("mouseenter", (e) => {
+        const imageSrc = link.getAttribute("data-image");
+        if (imageSrc) {
+            previewImage.src = imageSrc;
+            previewBox.style.opacity = "1";
+            previewBox.style.display = "block";
+            movePreview(e); // Move immediately to prevent flickering
+            document.addEventListener("mousemove", movePreview);
+        }
+    });
+
+    link.addEventListener("mousemove", movePreview);
+
+    link.addEventListener("mouseleave", () => {
+        previewBox.style.opacity = "0";
+        previewBox.style.display = "none";
+        document.removeEventListener("mousemove", movePreview);
+    });
+});
+
+function movePreview(e) {
+    requestAnimationFrame(() => {
+        let previewWidth = previewBox.offsetWidth;
+        let previewHeight = previewBox.offsetHeight;
+
+        let newLeft = e.clientX + -70; // Move slightly to the right
+        let newTop = e.clientY - previewHeight - 15; // Move above the cursor
+
+        // Prevent going off-screen at the top
+        if (newTop < 0) newTop = e.clientY + 15;
+
+        // Prevent going off-screen at the right
+        if (newLeft + previewWidth > window.innerWidth) {
+            newLeft = e.clientX - previewWidth - 20; // Move left if too far right
+        }
+
+        previewBox.style.left = `${newLeft}px`;
+        previewBox.style.top = `${newTop}px`;
+    });
+}
+
