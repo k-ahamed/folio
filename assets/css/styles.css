@@ -98,7 +98,7 @@ body {
   font-family: "Inter", "Helvetica Neue", "San Francisco", sans-serif; /* Include San Francisco font */
   color: var(--text-color);
   transition: 0.4s; /* for light mode animation */
-  padding: 18px 18%;  /* 25% padding on left and right */
+  padding: 10px 10%;  /* 25% padding on left and right */
 }
 
 h1,
