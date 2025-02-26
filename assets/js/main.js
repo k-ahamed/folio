@@ -300,3 +300,32 @@ function openEmailClient(event) {
       window.open("https://mail.google.com/mail/?view=cm&fs=1&to=khalidahamed373@gmail.com", "_blank");
   }, 2000);
 }
+
+
+
+
+
+
+
+document.getElementById("contact-form").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  emailjs.send("service_xze364f", "template_j5xobwp", {
+    from_name: document.getElementById("name").value,
+    from_email: document.getElementById("email").value,
+    message: document.getElementById("message").value,
+  }).then(
+      function (response) {
+          alert("Message sent successfully!");
+          console.log("SUCCESS", response);
+      },
+      function (error) {
+          alert("Failed to send message. Try again!");
+          console.log("FAILED", error);
+      }
+  );
+});
