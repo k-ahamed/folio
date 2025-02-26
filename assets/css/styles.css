@@ -735,8 +735,12 @@ body.light-theme {
 /*=============== WORK ===============*/
 
 .work__container {
-  padding-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  justify-content: center;
 }
+
 
 .work__filters {
   display: flex;
@@ -758,11 +762,22 @@ body.light-theme {
   background-color: var(--container-color);
   padding: 1rem;
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%; /* Ensures it doesn’t exceed container width */
+  max-width: 320px; /* Set a reasonable max-width */
+  overflow: hidden; /* Prevents content from overflowing */
+  word-wrap: break-word;
 }
 
+
 .work__img {
+  display: block;
+  margin: 0 auto; /* Centers the image horizontally */
   border-radius: 1rem;
-  margin-bottom: 0.75rem;
+  max-width: 100%; /* Ensures it fits within the card */
+  /* max-height: 100%; */
 }
 
 .work__title {
@@ -795,6 +810,34 @@ body.light-theme {
   background-color: var(--first-color);
   color: var(--body-color);
 }
+
+.work__description {
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  list-style-type: disc;
+  max-width: 100%; /* Restricts it to the parent container */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+
+.work__description li {
+  list-style-type: disc;
+}
+
+.work__button i.bxl-github {
+  font-size: 1.5rem; /* Increase icon size */
+  color: var(--first-color); /* Match theme color */
+  transition: transform 0.3s ease-in-out;
+}
+
+.work__button i.bxl-github:hover {
+  transform: scale(1.3); /* Slight zoom on hover */
+}
+
+
 
 /*=============== acheivements ===============*/
 #achievements {
@@ -1205,6 +1248,50 @@ body.light-theme {
     justify-content: center;
   }
 } */
+
+
+
+@media screen and (max-width: 768px) {
+  .work__container {
+      display: flex; /* Change from grid to flex */
+      flex-direction: column;
+      align-items: center; /* Center the container */
+      justify-content: center;
+      margin: 0 auto; /* Prevents shifting */
+      width: 100%; /* Ensures full width */
+  }
+
+  .work__card {
+      width: 90%; /* Ensures the cards take up most of the space */
+      max-width: 320px; /* Prevents cards from stretching too much */
+      margin: 0 auto; /* Centers individual cards */
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  #achievements ul {
+      padding-left: 0; /* Remove extra left padding */
+      list-style: none; /* Remove default bullets */
+  }
+
+  #achievements li {
+      display: flex;
+      align-items: flex-start; /* Aligns bullet with first line */
+      gap: 0.5rem; /* Space between bullet and text */
+      margin-bottom: 10px;
+  }
+
+  #achievements li::before {
+      content: "•"; /* Custom bullet */
+      color: var(--text-color); /* Match your theme */
+      font-size: 1.2rem; /* Adjust bullet size */
+      flex-shrink: 0; /* Prevents bullet from resizing */
+  }
+}
+
+
+
 
 /* For large devices */
 @media screen and (min-width: 992px) {
